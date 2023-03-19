@@ -8,10 +8,12 @@ jobs:
         with:
           path: docker-ha
           repository: loeken/docker-ha
+
       - name: Get version number
         run: |
-          VERSION=$(cat docker-ha/version.yaml | grep 'version' | cut -d ' ' -f2)
+          VERSION=$(cat docker-ha/version.yaml | grep 'version' | cut -d ' ' -f4)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+
       - name: Use version number in next step
         run: |
           echo $VERSION # use the version number here
