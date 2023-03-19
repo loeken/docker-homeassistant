@@ -3,9 +3,14 @@ jobs:
   release:
     runs-on: ubuntu-22.04
     steps:
+      - name: Check out my other private repo
+        uses: actions/checkout@master
+        with:
+          path: docker-ha
+          repository: loeken/docker-ha
       - name: Get version number
         run: |
-          VERSION=$(cat version.yaml | grep 'version' | cut -d ' ' -f2)
+          VERSION=$(cat docker-ha/version.yaml | grep 'version' | cut -d ' ' -f2)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
       - name: Use version number in next step
         run: |
@@ -17,11 +22,7 @@ jobs:
           path: ha
           ref: refs/tags/${{ env.VERSION }}
           repository: home-assistant/core
-      - name: Check out my other private repo
-        uses: actions/checkout@master
-        with:
-          path: docker-ha
-          repository: loeken/docker-ha
+
       - name: ls
         run: cp docker-ha/Dockerfile ha/Dockerfile
       - name: Set up QEMU
