@@ -1,15 +1,21 @@
 ---
-env:
-  version: 2023.3.3
 jobs:
   release:
     runs-on: ubuntu-22.04
     steps:
+      - name: Get version number
+        run: |
+          VERSION=$(cat version.yaml | grep 'version' | cut -d ' ' -f2)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - name: Use version number in next step
+        run: |
+          echo $VERSION # use the version number here
+
       - name: Check out my other private repo
         uses: actions/checkout@master
         with:
           path: ha
-          ref: refs/tags/${{ env.version }}
+          ref: refs/tags/${{ env.VERSION }}
           repository: home-assistant/core
       - name: Check out my other private repo
         uses: actions/checkout@master
@@ -33,21 +39,21 @@ jobs:
           context: ./ha
           no-cache: false
           push: true
-          tags: loeken/home-assistant:${{ env.version }}
+          tags: loeken/home-assistant:${{ env.VERSION }}
       - continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         name: Run Snyk to check Docker image for vulnerabilities
         uses: snyk/actions/docker@master
         with:
-          image: loeken/home-assistant:${{ env.version }}
+          image: loeken/home-assistant:${{ env.VERSION }}
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           exit-code: '0'
           format: table
           ignore-unfixed: true
-          image-ref: loeken/home-assistant:${{ env.version }}
+          image-ref: loeken/home-assistant:${{ env.VERSION }}
           severity: CRITICAL,HIGH
           vuln-type: os,library
 name: release
