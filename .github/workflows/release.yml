@@ -14,10 +14,10 @@ jobs:
       - name: Check out my other private repo
         uses: actions/checkout@master
         with:
-          path: docker-home-assistant
-          repository: loeken/docker-home-assistant
+          path: docker-ha
+          repository: loeken/docker-ha
       - name: ls
-        run: cp docker-home-assistant/Dockerfile ha/Dockerfile
+        run: cp docker-ha/Dockerfile ha/Dockerfile
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
