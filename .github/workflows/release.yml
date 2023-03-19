@@ -51,6 +51,6 @@ jobs:
           severity: CRITICAL,HIGH
           vuln-type: os,library
 name: release
-'on':
+on:
   push:
     branches: [main]
