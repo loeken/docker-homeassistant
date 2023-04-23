@@ -1,4 +1,6 @@
 ---
+env:
+  version: 2023.4.6
 jobs:
   release:
     runs-on: ubuntu-22.04
