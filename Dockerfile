@@ -15,12 +15,9 @@ COPY homeassistant/package_constraints.txt homeassistant/homeassistant/
 RUN \
     pip3 install --no-cache-dir --no-index --only-binary=:all: --find-links "${WHEELS_LINKS}" \
     -r homeassistant/requirements.txt --use-deprecated=legacy-resolver
-COPY requirements_all.txt home_assistant_frontend-* homeassistant/
+COPY requirements_all.txt homeassistant/
 RUN \
-    if ls homeassistant/home_assistant_frontend*.whl 1> /dev/null 2>&1; then \
-        pip3 install --no-cache-dir --no-index homeassistant/home_assistant_frontend-*.whl; \
-    fi \
-    && pip3 install --no-cache-dir --no-index --only-binary=:all: --find-links "${WHEELS_LINKS}" \
+    pip3 install --no-cache-dir --no-index --only-binary=:all: --find-links "${WHEELS_LINKS}" \
     -r homeassistant/requirements_all.txt --use-deprecated=legacy-resolver
 
 ## Setup Home Assistant Core
