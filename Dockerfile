@@ -1,2 +1,2 @@
-FROM homeassistant/home-assistant:2025.2.4
+FROM homeassistant/home-assistant:2025.2.5
 RUN apk upgrade

@@ -7,8 +7,7 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["homeassistant/home-assistant"],
-      "groupName": "home-assistant",
-      "automerge": true
+      "groupName": "home-assistant"
     }
   ],
   "pinDigests": true
