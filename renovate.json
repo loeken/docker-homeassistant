@@ -1,3 +1,16 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "prConcurrentLimit": 0,
+  "branchConcurrentLimit": 0,
+  "prHourlyLimit": 0,
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["homeassistant/home-assistant"],
+      "groupName": "home-assistant",
+      "versioning": "docker",
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"]
+    }
+  ],
+  "pinDigests": true
 }
