@@ -9,12 +9,6 @@
       "matchPackageNames": ["homeassistant/home-assistant"],
       "groupName": "home-assistant",
       "automerge": true
-    },
-    {
-      "matchDatasources": ["docker", "github-releases"],
-      "matchPackagePatterns": ["ubuntu"],
-      "groupName": "ubuntu-updates",
-      "automerge": true
     }
   ],
   "pinDigests": true
