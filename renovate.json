@@ -14,9 +14,19 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["loeken/home-assistant"],
-      "matchPaths": [".github/workflows/release.yml"],
+      "matchFileNames": [".github/workflows/release.yml"],
       "groupName": "home-assistant-release-tag",
       "automerge": true
+    }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^\\.github/workflows/release\\.yml$"],
+      "matchStrings": [
+        "loeken/home-assistant:(?<currentValue>[\\d\\.]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "loeken/home-assistant"
     }
   ]
 }
