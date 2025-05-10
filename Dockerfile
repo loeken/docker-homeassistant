@@ -1,2 +1,2 @@
-FROM homeassistant/home-assistant:2025.5.0@sha256:ffb0dfdb5558c7a702fffa23e207ec0e4e1adfb25f3f804fa2dde18689dfef8a
+FROM homeassistant/home-assistant:2025.5.1@sha256:249d5c20ae2ab973bc2ca54c05764e67e2230f14ac5ca5a7d45e228efbb62e67
 RUN apk upgrade
