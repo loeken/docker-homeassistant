@@ -30,6 +30,15 @@
       ],
       "datasourceTemplate": "docker",
       "packageNameTemplate": "loeken/home-assistant"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.github/workflows/release\\.yml$"],
+      "matchStrings": [
+        "tags:\\s*loeken/home-assistant:(?<currentValue>[\\d\\.]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "packageNameTemplate": "loeken/home-assistant"
     }
   ]
 }
