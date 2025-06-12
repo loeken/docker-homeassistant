@@ -21,12 +21,15 @@
       "automergeType": "branch"
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["^\\.github/workflows/release\\.yml$"],
-      "matchStrings": ["loeken/home-assistant:(?<currentValue>[\\d\\.]+)"],
+      "matchStrings": [
+        "loeken/home-assistant:(?<currentValue>[\\d\\.]+)"
+      ],
       "datasourceTemplate": "docker",
-      "depNameTemplate": "loeken/home-assistant"
+      "packageNameTemplate": "loeken/home-assistant"
     }
   ]
 }
