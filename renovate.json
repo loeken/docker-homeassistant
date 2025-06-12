@@ -9,22 +9,22 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["homeassistant/home-assistant"],
       "groupName": "home-assistant",
-      "automerge": true
+      "automerge": true,
+      "automergeType": "branch"
     },
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["loeken/home-assistant"],
       "matchFileNames": [".github/workflows/release.yml"],
       "groupName": "home-assistant-release-tag",
-      "automerge": true
+      "automerge": true,
+      "automergeType": "branch"
     }
   ],
   "regexManagers": [
     {
       "fileMatch": ["^\\.github/workflows/release\\.yml$"],
-      "matchStrings": [
-        "loeken/home-assistant:(?<currentValue>[\\d\\.]+)"
-      ],
+      "matchStrings": ["loeken/home-assistant:(?<currentValue>[\\d\\.]+)"],
       "datasourceTemplate": "docker",
       "depNameTemplate": "loeken/home-assistant"
     }
