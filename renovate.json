@@ -38,7 +38,7 @@
         "tags:\\s*loeken/home-assistant:(?<currentValue>[\\d\\.]+)"
       ],
       "datasourceTemplate": "docker",
-      "packageNameTemplate": "loeken/home-assistant"
+      "packageNameTemplate": "homeassistant/home-assistant"
     }
   ]
 }
